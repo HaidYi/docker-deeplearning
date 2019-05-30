@@ -1,9 +1,9 @@
 FROM nvidia/cuda:9.0-base-ubuntu16.04
 
 # Config Software Versions here
-ENV CONDA_VERSION=3-4.6.14
+ENV CONDA_VERSION=2-4.6.14
 ENV PYTHON_VERSION=2.7.16
-ENV PYTHON_NAME=py2.7
+ENV PYTHON_NAME=py27
 ENV PYTORCH_VERSION=1.0.0
 ENV TORCHVISION_VERSION=0.2.1
 
@@ -36,6 +36,7 @@ RUN /opt/miniconda/bin/conda install conda-build \
   && /opt/miniconda/bin/conda clean -ya
 ENV CONDA_DEFAULT_ENV=${PYTHON_NAME}
 ENV CONDA_PREFIX=/opt/miniconda/envs/${CONDA_DEFAULT_ENV}
+ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 
 # Install Pytorch and Torchvision
 # Note: for pytorch version..., use conda search to get its detailed versions.
