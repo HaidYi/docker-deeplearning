@@ -41,9 +41,9 @@ ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 # Install Pytorch and Torchvision
 # Note: for pytorch version..., use conda search to get its detailed versions.
 RUN conda install -y -c pytorch \
-    cuda100=1.0 \
     pytorch=${PYTORCH_VERSION} \
     torchvision=${TORCHVISION_VERSION} \
+    cudatoolkit=10.0 \
   && conda clean -ya
 
 # Install some basic python libraries for deep learning

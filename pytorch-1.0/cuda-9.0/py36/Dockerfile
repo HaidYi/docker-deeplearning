@@ -41,15 +41,13 @@ ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 # Install Pytorch and Torchvision
 # Note: for pytorch version..., use conda search to get its detailed versions.
 RUN conda install -y -c pytorch \
-    cuda90=1.0 \
     pytorch=${PYTORCH_VERSION} \
     torchvision=${TORCHVISION_VERSION} \
+    cudatoolkit=9.0 \
   && conda clean -ya
 
 # Install some basic python libraries for deep learning
-RUN conda install -y -c anaconda \
-    pillow=5.2.0 \
-    scikit-image=0.14.1 \
+RUN conda install -y pillow scikit -c anaconda \
   && conda clean -ya
 
 # For other libs, users can install them based on this image
