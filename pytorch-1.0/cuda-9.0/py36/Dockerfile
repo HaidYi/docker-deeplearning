@@ -47,7 +47,7 @@ RUN conda install -y -c pytorch \
   && conda clean -ya
 
 # Install some basic python libraries for deep learning
-RUN conda install -y pillow scikit -c anaconda \
+RUN conda install -y pillow scikit-image -c anaconda \
   && conda clean -ya
 
 # For other libs, users can install them based on this image
